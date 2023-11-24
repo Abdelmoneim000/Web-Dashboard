@@ -43,25 +43,27 @@ const ApiFieldsList = ({ apiFields }) => {
                       sx={{
                         bgcolor:
                           header === 'requestMethod'
-                            ? row[header] === 'GET'
+                            ? row[header] === 'GET' // color of the GET cell
                               ? '#4679fa'
-                              : row[header] === 'POST'
+                              : row[header] === 'POST' // Color of POST cell
                               ? '#04cf29'
                               : 'inherit'
                             : header === 'status'
-                            ? row[header] === 'active'
+                            ? row[header] === 'active' // Color of active & Not Active cells
                               ? '#5df078'
                               : 'red'
-                            : header === 'category'
-                            ? '#2f2c42' // Use a light gray color for the category column
+                            : header === 'category' // Color for the category cells
+                            ? '#2f2c42'
                             : 'inherit',
                         color: 'white',
-                        p: 1,
+                        p: 0.3,
                         borderRadius: 3,
+                        paddingLeft: 2,
+                        paddingRight: 2,
                         display: 'inline-block',
                         position: 'relative',
                         '&:hover': {
-                          bgcolor: header ? '#8c7cf0' : 'inherit', // Purple hover effect for the category column
+                          bgcolor: header ? header == 'status' || header == 'requestMethod' ? 'gray' : '#8c7cf0' : 'inherit', // if the cell is category, make hover purple. Else make it gray. Other cells are inherent
                         },
                       }}
                     >
