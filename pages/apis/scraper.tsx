@@ -1,5 +1,4 @@
 // ScraperApiPage.tsx
-import TaskSearch from '@/content/Dashboards/Tasks/TaskSearch';
 import React, { useEffect, useState } from 'react';
 import { CircularProgress,
   Alert,
@@ -19,7 +18,7 @@ import PageHeader from '@/content/Management/Transactions/PageHeader';
 import apiFieldsData from '@/content/Management/ApiFields/apiFieldsData.json'; // Adjust the path
 import Head from 'next/head';
 import PageTitleWrapper from '@/components/PageTitleWrapper';
-import { title } from 'process';
+
 
 const ScraperApiPage = () => {
   const [data, setData] = useState(null);
@@ -36,7 +35,10 @@ const ScraperApiPage = () => {
   }, []);
 
   if (loading) return <CircularProgress />;
-  if (error) return <Alert severity="error">{error.message}</Alert>;
+  if (error) {
+    setError(error);
+    return <Alert severity="error">{error.message}</Alert>;
+  }
 
   const OutlinedInputWrapper = styled(OutlinedInput)(
     ({ theme }) => `
