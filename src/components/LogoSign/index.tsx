@@ -29,7 +29,7 @@ const LogoSignWrapper = styled(Box)(
 
 const LogoSign = styled(Box)(
   ({ theme }) => `
-        background: url('/favicon.ico');
+        background: ${theme.general.reactFrameworkColor};
         width: 18px;
         height: 18px;
         border-radius: ${theme.general.borderRadiusSm};
@@ -99,7 +99,7 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="MAYKELL API dashboard"
+      title="Tokyo Free Black Next.js Typescript Admin Dashboard"
       arrow
     >
       <LogoWrapper href="/">
@@ -116,7 +116,9 @@ function Logo() {
           badgeContent="1.0"
         >
           <LogoSignWrapper>
-            <img src="/favicon.ico" alt="Logo" />
+            <LogoSign>
+              <LogoSignInner />
+            </LogoSign>
           </LogoSignWrapper>
         </Badge>
       </LogoWrapper>
